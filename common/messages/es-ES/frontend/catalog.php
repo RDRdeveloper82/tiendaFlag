@@ -27,6 +27,5 @@ return [
     'Share on Facebook' => 'Compartir En Facebook',
     'Share on Google Plus' => 'Compartir En Google+',
     'Share on Twitter' => 'Compartir En Twitter',
-    'Share on VK' => 'Compartir En VK',
     'View' => 'Vista',
 ];

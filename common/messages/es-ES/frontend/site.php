@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Home' => 'Home',
+    'Home' => 'Inicio',
     'Last products' => 'Últimos Productos',
     'Please contact us if you think this is a server error. Thank you.' => 'Por Favor, Póngase En Contacto Con Nosotros Si Usted Piensa Que Esto Es Un Error Del Servidor. Gracias.',
     'The above error occurred while the Web server was processing your request.' => 'Este error ocurrió al procesar su solicitud',

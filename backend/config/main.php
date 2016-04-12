@@ -15,8 +15,10 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'backend\models\User',
+            'identityClass' => 'backend\models\admin',
             'enableAutoLogin' => true,
+        	'enableSession' => true,
+        	'loginUrl'=>['site/logincustom'],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

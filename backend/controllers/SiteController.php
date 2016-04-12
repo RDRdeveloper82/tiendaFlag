@@ -26,7 +26,7 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['logincustom', 'error'],
                         'allow' => true,
                     ],
                     [
@@ -87,6 +87,22 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    
+    public function actionLogincustom()
+    {
+    	if (!\Yii::$app->user->isGuest) {
+    		return $this->goHome();
+    	}
+    
+    	$model = new LoginForm();
+    	if ($model->load(Yii::$app->request->post()) && $model->login()) {
+    		return $this->goBack();
+    	} else {
+    		return $this->render('logincustom', [
+    				'model' => $model,
+    		]);
+    	}
     }
 
     public function actionLogout()

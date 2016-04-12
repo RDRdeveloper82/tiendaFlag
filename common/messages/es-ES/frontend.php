@@ -20,7 +20,7 @@ return [
     'All rights reserved' => 'Todos Los Derechos Reservados',
     'Cart' => 'Carrito',
     'Catalog' => 'Catálogo',
-    'Home' => 'Home',
+    'Home' => 'Inicio',
     'Search' => 'Buscar',
     'Shop' => 'Tienda',
     'Stay In Touch' => 'Suscripción',

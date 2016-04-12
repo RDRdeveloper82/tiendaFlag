@@ -20,7 +20,7 @@ return [
     '(not set)' => '(No Establecido)',
     'Are you sure you want to delete this item?' => '¿Estás Seguro De Querer Borrar Este Item?',
     'Delete' => 'Borrar',
-    'Home' => 'Home',
+    'Home' => 'Inicio',
     'Update' => 'Actualizar',
     'View' => 'Vista',
 ];

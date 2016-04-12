@@ -74,7 +74,7 @@ $newOrders = Order::find()->where(['status' => Order::STATUS_NEW])->count();
         ]
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => Yii::t('backend', 'Login'), 'url' => ['site/login']];
+        $menuItems[] = ['label' => Yii::t('backend', 'Login'), 'url' => ['site/logincustom']];
     } else {
         $menuItems[] = [
             'label' => Yii::t('backend', 'Logout ({username})', [
@@ -105,7 +105,7 @@ $newOrders = Order::find()->where(['status' => Order::STATUS_NEW])->count();
 <footer>
     <div class="container">
         <hr>
-        Yii2Shop &copy; <?= date('Y') ?>
+        Flag Solutions &copy; <?= date('Y') ?>
     </div>
 </footer>
 
