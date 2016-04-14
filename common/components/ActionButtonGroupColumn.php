@@ -21,7 +21,6 @@ use yii\helpers\Html;
  * ]
  * ```
  *
- * @author Alex Solomaha <cyanofresh@gmail.com>
  */
 class ActionButtonGroupColumn extends ActionColumn
 {

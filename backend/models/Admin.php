@@ -31,6 +31,7 @@ class Admin extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 	}
 	
 	public function validatePassword($password){
-		return $this->password === $password;
+		//return $this->authkey === Yii::$app->getSecurity()->generatePasswordHash($password);
+		return Yii::$app->getSecurity()->validatePassword($password, $this->authkey);
 	}
 }

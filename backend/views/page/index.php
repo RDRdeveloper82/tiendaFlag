@@ -29,16 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'slug',
-            [
+           [
                 'attribute' => 'menu',
                 'format' => 'html',
                 'value' => function ($model) {
                     return $model->menu ? Yii::t('backend/page', 'Yes') : Yii::t('backend/page', 'No');
                 }
             ],
-            // 'body:ntext',
-            // 'meta_description',
-            // 'meta_keywords',
 
             ['class' => 'common\components\ActionButtonGroupColumn'],
         ],

@@ -23,10 +23,11 @@ return [
     'Orders' => 'Pedidos',
     'Pages' => 'Páginas',
     'Products' => 'Productos',
-    'Shop' => 'Envío',
+    'Shop' => 'Tienda',
     'Slides' => 'Presentaciones',
     'Statuses' => 'Status',
     'Subscribers' => 'Suscriptores',
     'View site' => 'Ver Web',
+	'Admin' => 'Administradores',
 ];
 
