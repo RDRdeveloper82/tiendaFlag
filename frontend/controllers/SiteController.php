@@ -4,7 +4,7 @@ namespace frontend\controllers;
 use common\models\Product;
 use common\models\Subscriber;
 use common\models\User;
-use frontend\models\Municipios;
+use common\models\States;
 use Yii;
 use yii\bootstrap\Alert;
 use yii\data\ArrayDataProvider;
@@ -29,8 +29,9 @@ class SiteController extends Controller
 						'class' => AccessControl::className(),
 						'rules' => [
 								[
-										'actions' => ['login', 'error', 'index', 'register', 'municipios'],
+										'actions' => ['login', 'error', 'index', 'register', 'states'],
 										'allow' => true,
+										
 										
 								],
 								[
@@ -140,19 +141,21 @@ class SiteController extends Controller
     
     }
     
-    public function actionMunicipios() {
+    public function actionStates() {
     	$out = [];
     	if (isset($_POST['depdrop_parents'])) {
     		$parents = $_POST['depdrop_parents'];
     		if ($parents != null) {
-    			$id_provincia = $parents[0];
-    			$out = Municipios::getSubCatList($id_provincia);
+    			$country_id = $parents[0];
+    			$out = States::getSubCatList($country_id);
     			echo Json::encode(['output'=>$out, 'selected'=>'']);
     			return;
     		}
     	}
     	echo Json::encode(['output'=>'', 'selected'=>'']);
     }
+    
+    
 
     public function actionLogout()
     {

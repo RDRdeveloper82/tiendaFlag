@@ -14,7 +14,7 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
     	'user' => [
-    			'identityClass' => 'frontend\models\user',
+    			'identityClass' => 'common\models\user',
     			'enableAutoLogin' => true,
     			'enableSession' => true,
     			'loginUrl'=>['site/login'],
@@ -38,27 +38,7 @@ return [
         				'<controller:\w+>/<id:\d+>' => '<controller>/view',
         				'<controller:\w+>' => '<controller>/index',
         		],
-            /*'rules' => [
-                // Site
-                '/' => 'site/index',
-                '/subscribe' => 'site/subscribe',
-            	'/login' => 'site/login',
-                '/search' => 'search/index',
-                'sitemap.xml' => 'sitemap/index',
-                // Cart
-                'cart' => 'cart/index',
-                'cart/order' => 'cart/order',
-                'cart/add/<id:\d+>' => 'cart/add',
-                'cart/remove/<id:\d+>' => 'cart/remove',
-                'cart/clear' => 'cart/clear',
-                // Page
-                'page/<slug>' => 'page/view',
-                // Catalog
-                'catalog/page/<page:\d+>' => 'catalog/index',
-                'catalog' => 'catalog/index',
-                '<category:.+>/<slug>' => 'catalog/view',
-                '<category:.+>' => 'catalog/category',
-            ],*/
+
         ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
