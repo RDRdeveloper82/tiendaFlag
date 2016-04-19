@@ -17,14 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Categories' => 'Categoría',
+    'Categories' => 'Categor�a',
     'Create' => 'Añadir',
-    'Create Category' => 'Añadir Categoría',
-    'If empty it will be generated from name' => 'Si Está Vacío, Se Generará Con Nombre',
+    'Create Category' => 'Añadir categoría',
+    'If empty it will be generated from name' => 'Si está vacío, se generará con nombre',
     'Reset' => 'Limpiar',
     'Save' => 'Salvar',
     'Search' => 'Buscar',
-    'Search Categories' => 'Buscar Categorías',
+    'Search Categories' => 'Buscar categorías',
     'Update' => 'Actualizar',
-    'Update Category: ' => 'Editar Categoría: ',
+    'Update Category: ' => 'Editar categoría: ',
 ];

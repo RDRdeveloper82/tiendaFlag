@@ -19,7 +19,7 @@
 return [
     'Categories' => 'Categorías',
     'Login' => 'Login',
-    'Logout ({username})' => 'Cerrar Sesión ({username})',
+    'Logout ({username})' => 'Cerrar sesión ({username})',
     'Orders' => 'Pedidos',
     'Pages' => 'Páginas',
     'Products' => 'Productos',
@@ -27,7 +27,7 @@ return [
     'Slides' => 'Presentaciones',
     'Statuses' => 'Status',
     'Subscribers' => 'Suscriptores',
-    'View site' => 'Ver Web',
+    'View site' => 'Ver web',
 	'Admin' => 'Administradores',
 ];
 

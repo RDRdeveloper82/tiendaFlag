@@ -20,5 +20,5 @@ return [
     'Idadmin'   => 'Id Admin',
     'Username' => 'Usuario',
     'Password' => 'Contraseña',
-	'RePassword' => 'Repetir Contraseña',
+	'RePassword' => 'Repetir contraseña',
 ];

@@ -44,13 +44,26 @@ $pages = Page::findAll(['menu' => true]);
         $menuItems = [
             ['label' => Yii::t('frontend', 'Home'), 'url' => ['site/index']],
             ['label' => Yii::t('frontend', 'Catalog'), 'url' => ['catalog/index']],
+        	//['label' => Yii::t('frontend', 'Login'), 'url' => ['site/login']],
         ];
-        foreach ($pages as $page) {
+        if (Yii::$app->user->isGuest) {
+        	$menuItems[] = ['label' => Yii::t('frontend', 'Login'), 'url' => ['site/login']];
+        } else {
+        	$menuItems[] = [
+        			'label' => Yii::t('frontend', 'Logout ({username})', [
+        					'username' => Yii::$app->user->identity->username
+        			]),
+        			'url' => ['/site/logout'],
+        			'linkOptions' => ['data-method' => 'post']
+        	];
+        }
+        /*foreach ($pages as $page) {
             $menuItems[] = [
                 'label' => $page->name,
                 'url' => ['page/view', 'slug' => $page->slug],
             ];
-        }
+        }*/
+   
         $menuItems[] = [
             'label' => Yii::t('frontend', 'Search'),
             'url' => ['search/index'],
@@ -117,8 +130,8 @@ $pages = Page::findAll(['menu' => true]);
         <div class="footer-bottom">
             <div class="container">
                 <p class="pull-left">
-                    © <?= Yii::$app->name ?> <?= date('Y') ?>. <?= Yii::t('frontend', 'All rights reserved') ?>. <a
-                        href="http://solomaha.me/">Автор сайта</a>
+                    Â© <?= Yii::$app->name ?> <?= date('Y') ?>. <?= Yii::t('frontend', 'All rights reserved') ?>. <a
+                        href="http://solomaha.me/">Ð�Ð²Ñ‚Ð¾Ñ€ Ñ�Ð°Ð¹Ñ‚Ð°</a>
                 </p>
             </div>
         </div>

@@ -18,15 +18,15 @@
  */
 return [
     'Create' => 'Crear',
-    'Create Page' => 'Crear Página',
+    'Create Page' => 'Crear página',
     'Delete' => 'Borrar',
     'No' => 'No',
     'Pages' => 'Páginas',
     'Reset' => 'Limpiar',
     'Search' => 'Buscar',
-    'Search Pages' => 'Buscar Páginas',
+    'Search Pages' => 'Buscar páginas',
     'Update' => 'Actualizar',
-    'Update page: ' => 'Actualizar Páginas: ',
-    'View on site' => 'Ver En Línea',
-    'Yes' => 'Sí',
+    'Update page: ' => 'Actualizar páginas: ',
+    'View on site' => 'Ver en l�nea',
+    'Yes' => 'SÍ',
 ];

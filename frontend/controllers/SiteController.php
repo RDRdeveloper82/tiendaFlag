@@ -3,17 +3,51 @@ namespace frontend\controllers;
 
 use common\models\Product;
 use common\models\Subscriber;
+use common\models\User;
+use frontend\models\Municipios;
 use Yii;
 use yii\bootstrap\Alert;
 use yii\data\ArrayDataProvider;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\Response;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
+use frontend\models\LoginFormFrontend;
+use yii\helpers\Json;
+
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+	public function behaviors()
+	{
+		return [
+				'access' => [
+						'class' => AccessControl::className(),
+						'rules' => [
+								[
+										'actions' => ['login', 'error', 'index', 'register', 'municipios'],
+										'allow' => true,
+										
+								],
+								[
+										'actions' => ['logout', 'index', 'subscribe'],
+										'allow' => true,
+										'roles' => ['@'],
+								],
+						],
+				],
+				'verbs' => [
+						'class' => VerbFilter::className(),
+						'actions' => [
+								'logout' => ['post'],
+						],
+				],
+		];
+	}
     /**
      * @inheritdoc
      */
@@ -38,11 +72,7 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Handle Subscribe Form via Ajax
-     *
-     * @return array|Response json result
-     */
+   
     public function actionSubscribe()
     {
         $model = new Subscriber();
@@ -78,4 +108,57 @@ class SiteController extends Controller
 
         return $this->redirect(['site/index']);
     }
+    
+    public function actionLogin(){
+    	if (!\Yii::$app->user->isGuest) {
+    		return $this->goHome();
+    	}
+    	$model = new LoginFormFrontend();
+    	if ($model->load(Yii::$app->request->post()) && $model->login()) {
+    		return $this->goBack();
+    	} else {
+    		return $this->render('login', [
+    				'model' => $model,
+    		]);
+    	}
+    }
+    
+    public function actionRegister(){ 	
+    	$model = new User();
+    	$modelLog = new LoginFormFrontend();
+    	if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    		return $this->render('login', [
+    				'model' => $modelLog,
+    				]);
+    	} else{
+  
+    		return $this->render('_form', [
+    				'model' => $model,
+    				
+    		]);
+    	}
+    
+    }
+    
+    public function actionMunicipios() {
+    	$out = [];
+    	if (isset($_POST['depdrop_parents'])) {
+    		$parents = $_POST['depdrop_parents'];
+    		if ($parents != null) {
+    			$id_provincia = $parents[0];
+    			$out = Municipios::getSubCatList($id_provincia);
+    			echo Json::encode(['output'=>$out, 'selected'=>'']);
+    			return;
+    		}
+    	}
+    	echo Json::encode(['output'=>'', 'selected'=>'']);
+    }
+
+    public function actionLogout()
+    {
+    	Yii::$app->user->logout();
+    
+    	return $this->goHome();
+    }
+    
 }

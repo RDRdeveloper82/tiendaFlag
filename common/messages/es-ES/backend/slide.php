@@ -19,14 +19,14 @@
 return [
     'Browse' => 'Buscador',
     'Create' => 'Crear',
-    'Create Slide' => 'Crear Presentación',
+    'Create Slide' => 'Crear presentación',
     'Delete' => 'Borrar',
-    'If empty it will be generated automatically' => 'Si Está Vacío, Se Generará Con Nombre',
+    'If empty it will be generated automatically' => 'Si está vacío, se generará con nombre',
     'Reset' => 'Limpiar',
     'Save' => 'Guardar',
     'Search' => 'Buscar',
-    'Search Slides' => 'Buscar Presentaciones',
+    'Search Slides' => 'Buscar presentaciones',
     'Slides' => 'Presentaciones',
     'Update' => 'Actualizar',
-    'Update Slide: ' => 'Actualizar Presentación: ',
+    'Update Slide: ' => 'Actualizar presentación: ',
 ];

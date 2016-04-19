@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'All rights reserved' => 'Todos Los Derechos Reservados',
+    'All rights reserved' => 'Todos los derechos reservados',
     'Cart' => 'Carrito',
     'Catalog' => 'Catálogo',
     'Home' => 'Inicio',
@@ -25,7 +25,9 @@ return [
     'Shop' => 'Tienda',
     'Stay In Touch' => 'Suscripción',
     'Subscribe' => 'Suscribirse',
-    'The requested page does not exist.' => 'La Página Solicitada No Existe.',
-    'This email is already subscribed' => 'El Email Ya está Suscrito',
-    'You have successfully subscribed to our updates and news!' => 'Te Has Registrado Correctamente En Nuestras Actualizaciones Y Noticias!',
+    'The requested page does not exist.' => 'La página solicitada no existe.',
+    'This email is already subscribed' => 'El email Ya está suscrito',
+    'You have successfully subscribed to our updates and news!' => 'Te has registrado correctamente en nuestras actualizaciones y noticias!',
+	'Login' => 'Identificarse',
+	'Logout ({username})' => 'Cerrar Sesión ({username})',
 ];

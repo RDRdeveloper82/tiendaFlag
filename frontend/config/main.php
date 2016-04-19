@@ -13,6 +13,12 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+    	'user' => [
+    			'identityClass' => 'frontend\models\user',
+    			'enableAutoLogin' => true,
+    			'enableSession' => true,
+    			'loginUrl'=>['site/login'],
+    		],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -28,10 +34,15 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+        		'rules' => [
+        				'<controller:\w+>/<id:\d+>' => '<controller>/view',
+        				'<controller:\w+>' => '<controller>/index',
+        		],
+            /*'rules' => [
                 // Site
                 '/' => 'site/index',
                 '/subscribe' => 'site/subscribe',
+            	'/login' => 'site/login',
                 '/search' => 'search/index',
                 'sitemap.xml' => 'sitemap/index',
                 // Cart
@@ -47,7 +58,7 @@ return [
                 'catalog' => 'catalog/index',
                 '<category:.+>/<slug>' => 'catalog/view',
                 '<category:.+>' => 'catalog/category',
-            ],
+            ],*/
         ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',

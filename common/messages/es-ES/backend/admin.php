@@ -18,13 +18,13 @@
  */
 return [
     'Admin' => 'Administradores',
-	'Search Admins' => 'Buscar Administradores',
+	'Search Admins' => 'Buscar administradores',
 	'Search' => 'Buscar',
 	'Reset' => 'Limpiar',
-	'Update Admin: ' => 'Actualizar Administrador: ',
+	'Update Admin: ' => 'Actualizar administrador: ',
 	'Administrators' => 'Administradores',
 	'Update' => 'Actualizar',
 	'Create' => 'Crear',
-	'Create Admin' => 'Crear Administrador',
+	'Create Admin' => 'Crear administrador',
 
 ];

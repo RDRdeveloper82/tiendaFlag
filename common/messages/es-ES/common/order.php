@@ -28,5 +28,5 @@ return [
     'Processed' => 'Procesado',
     'Reviewed' => 'Revisado',
     'Status' => 'Status',
-    'Total Cost' => 'Coste Total',
+    'Total Cost' => 'Coste total',
 ];

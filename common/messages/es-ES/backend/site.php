@@ -17,10 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'All Orders' => 'Todas Las Órdenes',
-    'Create Category' => 'Crear Categoría',
-    'Create Product' => 'Crear Producto',
-    'New Orders' => 'Pedidos Nuevos',
-    'Short Actions' => 'Acciones Rápidas',
+    'All Orders' => 'Todas las órdenes',
+    'Create Category' => 'Crear categoría',
+    'Create Product' => 'Crear producto',
+    'New Orders' => 'Pedidos nuevos',
+    'Short Actions' => 'Acciones rápidas',
 ];
 

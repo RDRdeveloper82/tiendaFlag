@@ -17,15 +17,15 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Add To Cart' => 'Añadir al Carrito',
+    'Add To Cart' => 'Añadir al carrito',
     'Catalog' => 'Catálogo',
     'Categories' => 'Categorías',
     'Category' => 'Categoría',
-    'Date Created' => 'Fecha Creade',
-    'Order by:' => 'Ordenar Por:',
+    'Date Created' => 'Fecha creada',
+    'Order by:' => 'Ordenar por:',
     'Share' => 'Compartir',
-    'Share on Facebook' => 'Compartir En Facebook',
-    'Share on Google Plus' => 'Compartir En Google+',
-    'Share on Twitter' => 'Compartir En Twitter',
+    'Share on Facebook' => 'Compartir en Facebook',
+    'Share on Google Plus' => 'Compartir en Google+',
+    'Share on Twitter' => 'Compartir en Twitter',
     'View' => 'Vista',
 ];

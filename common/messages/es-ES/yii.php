@@ -17,8 +17,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    '(not set)' => '(No Establecido)',
-    'Are you sure you want to delete this item?' => '¿Estás Seguro De Querer Borrar Este Item?',
+    '(not set)' => '(No establecido)',
+    'Are you sure you want to delete this item?' => '¿Estás seguro de querer borrar este item?',
     'Delete' => 'Borrar',
     'Home' => 'Inicio',
     'Update' => 'Actualizar',

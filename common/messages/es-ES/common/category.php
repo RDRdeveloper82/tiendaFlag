@@ -19,9 +19,9 @@
 return [
     'Description' => 'Descripción',
     'ID' => 'ID',
-    'Meta Description' => 'Meta Descripción',
-    'Meta Keywords' => 'Meta Keywords',
+    'Meta Description' => 'Meta descripción',
+    'Meta Keywords' => 'Meta keywords',
     'Name' => 'Nombre',
-    'Parent Category' => 'Categoría Padre',
+    'Parent Category' => 'Categoría padre',
     'Slug' => 'URL',
 ];

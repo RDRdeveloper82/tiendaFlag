@@ -19,9 +19,9 @@
 return [
     'Body' => 'Body',
     'ID' => 'ID',
-    'Meta Description' => 'Meta Descripción',
-    'Meta Keywords' => 'Meta Keywords',
+    'Meta Description' => 'Meta descripción',
+    'Meta Keywords' => 'Meta keywords',
     'Name' => 'Nombre',
-    'Show in menu' => 'Ver En Menú',
+    'Show in menu' => 'Ver en menú',
     'URL' => 'URL',
 ];

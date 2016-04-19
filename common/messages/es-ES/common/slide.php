@@ -20,6 +20,6 @@ return [
     'Body' => 'Body',
     'ID' => 'ID',
     'Image' => 'Imagen',
-    'Sort Order' => 'Ordenar Por',
+    'Sort Order' => 'Ordenar por',
     'Title' => 'Título',
 ];

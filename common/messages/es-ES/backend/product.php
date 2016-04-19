@@ -17,19 +17,19 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    '- select category -' => '- Seleccionar Categoría -',
-    '- select status -' => '- Seleccionar Status -',
+    '- select category -' => '- Seleccionar categoría -',
+    '- select status -' => '- Seleccionar status -',
     'Browse' => 'Buscador',
     'Create' => 'Crear',
-    'Create Product' => 'Crear Producto',
+    'Create Product' => 'Crear producto',
     'Delete' => 'Borrar',
-    'If empty it will be generated from name' => 'Si Está Vacío, Se Generará Con Nombre',
+    'If empty it will be generated from name' => 'Si está vacío, se generará con nombre',
     'Products' => 'Productos',
     'Reset' => 'Limpiar',
     'Save' => 'Guardar',
     'Search' => 'Buscar',
-    'Search Products' => 'Buscar Productos',
+    'Search Products' => 'Buscar productos',
     'Update' => 'Actualizar',
-    'Update product: ' => 'Actualizar Productos: ',
-    'View on site' => 'Ver En Línea',
+    'Update product: ' => 'Actualizar productos: ',
+    'View on site' => 'Ver en línea',
 ];

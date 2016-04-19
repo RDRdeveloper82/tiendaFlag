@@ -17,16 +17,16 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    '- select status -' => '- Seleccionar Status -',
+    '- select status -' => '- Seleccionar status -',
     'Delete' => 'Borrar',
     'Done' => 'Hecho',
     'New' => 'Nuevo',
-    'Order #{orderID}' => 'Pedido №{orderID}',
+    'Order #{orderID}' => 'Pedido #{orderID}',
     'Orders' => 'Pedidos',
     'Products' => 'Productos',
     'Reset' => 'Limpiar',
     'Search' => 'Buscar',
-    'Search Orders' => 'Buscar Pedidos',
-    'Set this order as done' => 'Marcar Este Pedido Como Hecho',
-    'Set this order as new' => 'Marcar Este Pedido Como Nuevo',
+    'Search Orders' => 'Buscar pedidos',
+    'Set this order as done' => 'Marcar este pedido como hecho',
+    'Set this order as new' => 'Marcar este pedido como nuevo',
 ];
