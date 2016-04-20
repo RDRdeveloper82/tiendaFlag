@@ -74,7 +74,7 @@ use yii\captcha\Captcha;
     <?= $form->field($model, 'email')->textInput(['maxlength' => 30, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your EMAIL')]) ?>
     
     <?= $form->field($model, 'captcha')->widget(Captcha::classname(), [		
-    		'template' => '<div class="row"><div class="col-lg-3">{image}</div><br/><div class="col-lg-6">{input}</div></div>',
+
 		]);
     ?>
     

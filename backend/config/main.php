@@ -19,7 +19,18 @@ return [
             'enableAutoLogin' => true,
         	'enableSession' => true,
         	'loginUrl'=>['site/login'],
-        ],
+        	'identityCookie' => [
+        		'name' => '_backendUser',
+        			]
+        	],
+        'session' => [
+        		'name' => 'PHPBACKSESSID',
+        		'savePath' => sys_get_temp_dir(),
+        	],
+        'request' => [
+        		'cookieValidationKey' => 'OPhtECHFTPvNRbQbPSVB',
+        		'csrfParam' => '_backendCSRF',
+        	],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [

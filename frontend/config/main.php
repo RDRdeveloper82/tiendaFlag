@@ -18,6 +18,17 @@ return [
     			'enableAutoLogin' => true,
     			'enableSession' => true,
     			'loginUrl'=>['site/login'],
+    			'identityCookie' => [
+    					'name' => '_frontendUser',
+    					]
+    		],
+    	'session' => [
+    			'name' => 'PHPFRONTSESSID',
+    			'savePath' => sys_get_temp_dir(),
+    		],
+    	'request' => [
+    			'cookieValidationKey' => 'OUmzDiJZWXrQSZNjMpfV',
+    			'csrfParam' => '_frontendCSRF',
     		],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -40,6 +51,7 @@ return [
         		],
 
         ],
+    	
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
             'enableMinify' => !YII_DEBUG,
@@ -51,6 +63,9 @@ return [
             'expand_imports' => true, // whether to change @import on content
             'compress_output' => true, // compress result html page
         ],
+    	
     ],
+
+	
     'params' => $params,
 ];
