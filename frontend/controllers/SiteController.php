@@ -26,6 +26,7 @@ class SiteController extends Controller {
 	
 	//Access control for registered users @ and non registered users ?
 	public function behaviors() {
+		
 		return [
 				'access' => [
 						'class' => AccessControl::className(),

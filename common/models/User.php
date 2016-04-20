@@ -5,8 +5,7 @@ namespace common\models;
 use Yii;
 use yii\db\ActiveRecord;
 
-class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
-{
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     /**
      * @inheritdoc
      */
@@ -70,7 +69,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     
     public function beforeSave($insert) {
     	
-    	if(parent::beforeSave($insert)) {
+    	if (parent::beforeSave($insert)) {
     		$this->authkey=$this->setPassword($this->authkey);
     		return true;
     	}

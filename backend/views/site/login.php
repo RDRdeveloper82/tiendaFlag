@@ -2,10 +2,6 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model backend\models\LoginForm */
-
 $this->title = Yii::t('backend/login', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>

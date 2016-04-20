@@ -14,19 +14,18 @@ use yii\web\Controller;
 /**
  * Site controller
  */
-class SiteController extends Controller
-{
+class SiteController extends Controller {
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
+    	
         return [
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['logincustom', 'error'],
+                        'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
                     [
@@ -43,22 +42,24 @@ class SiteController extends Controller
                 ],
             ],
         ];
+        
     }
 
     /**
      * @inheritdoc
      */
-    public function actions()
-    {
+    public function actions() {
+    	
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
+        
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
+    	
         $dataProvider = new ActiveDataProvider([
             'query' => Order::find()->limit(10)->where(['status' => Order::STATUS_NEW]),
         ]);
@@ -71,26 +72,11 @@ class SiteController extends Controller
             'categoryModel' => new Category(),
             'productModel' => $productModel,
         ]);
+        
     }
 
-    public function actionLogin()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-    
-    public function actionLogincustom()
-    {
+    public function actionLogin() {
+    	
     	if (!\Yii::$app->user->isGuest) {
     		return $this->goHome();
     	}
@@ -99,16 +85,17 @@ class SiteController extends Controller
     	if ($model->load(Yii::$app->request->post()) && $model->login()) {
     		return $this->goBack();
     	} else {
-    		return $this->render('logincustom', [
+    		return $this->render('login', [
     				'model' => $model,
     		]);
     	}
     }
 
-    public function actionLogout()
-    {
+    public function actionLogout() {
+    	
         Yii::$app->user->logout();
-
         return $this->goHome();
+        
     }
+    
 }

@@ -6,19 +6,20 @@ use common\models\Product;
 use common\models\ProductSearch;
 use yii\data\ActiveDataProvider;
 
-class Search extends ProductSearch
-{
+class Search extends ProductSearch {
+	
     public $search;
 
-    public function rules()
-    {
+    public function rules() {
+    	
         return [
             ['search', 'safe'],
         ];
+        
     }
 
-    public function search($params)
-    {
+    public function search($params) {
+    	
         $query = Product::find();
 
         $dataProvider = new ActiveDataProvider([
@@ -28,7 +29,7 @@ class Search extends ProductSearch
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to any records when validation fails
+            
             $query->where('0=1');
 
             return $dataProvider;
@@ -43,5 +44,7 @@ class Search extends ProductSearch
             ->orFilterWhere(['like', 'meta_keywords', $this->search]);
 
         return $dataProvider;
+        
     }
+    
 }
