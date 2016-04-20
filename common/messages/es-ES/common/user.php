@@ -15,4 +15,5 @@ return [
 	'Telephone' => 'Teléfono',	
 	'Date' => 'Fecha de nacimiento',
 	'A telephone number is required' => 'Debe introducir un número de teléfono correcto',
+	'Captcha. Click on image for refresh' => 'Captcha (Haz click en la imagen para refrescarla)',
 ];

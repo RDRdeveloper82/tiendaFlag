@@ -15,21 +15,23 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use frontend\models\LoginFormFrontend;
 use yii\helpers\Json;
+use yii\captcha\CaptchaAction;
+
 
 
 /**
  * Site controller
  */
-class SiteController extends Controller
-{
-	public function behaviors()
-	{
+class SiteController extends Controller {
+	
+	//Access control for registered users @ and non registered users ?
+	public function behaviors() {
 		return [
 				'access' => [
 						'class' => AccessControl::className(),
 						'rules' => [
 								[
-										'actions' => ['login', 'error', 'index', 'register', 'states'],
+										'actions' => ['login', 'error', 'index', 'register', 'states', 'captcha'],
 										'allow' => true,
 										
 										
@@ -48,22 +50,30 @@ class SiteController extends Controller
 						],
 				],
 		];
+		
 	}
+	
     /**
      * @inheritdoc
      */
-    public function actions()
-    {
+    public function actions() {
+    	
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
+        	'captcha' => [
+        		'class' => 'yii\captcha\CaptchaAction',
+        		'fixedVerifyCode' => null,
+        		],
         ];
+        
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
+    	
         $this->layout = 'fullwide';
+        
         $dataProvider = new ArrayDataProvider([
             'allModels' => Product::find()->limit(8)->orderBy('date DESC')->all()
         ]);
@@ -71,11 +81,12 @@ class SiteController extends Controller
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+        
     }
 
    
-    public function actionSubscribe()
-    {
+    public function actionSubscribe() {
+    	
         $model = new Subscriber();
         $model->date = date('Y-m-d H:i');
 
@@ -108,40 +119,54 @@ class SiteController extends Controller
         }
 
         return $this->redirect(['site/index']);
+        
     }
     
-    public function actionLogin(){
+    //If the login data is ok goes to index else comes back to login form.
+    public function actionLogin() {
+    	
     	if (!\Yii::$app->user->isGuest) {
     		return $this->goHome();
     	}
+    	
     	$model = new LoginFormFrontend();
+    	
     	if ($model->load(Yii::$app->request->post()) && $model->login()) {
-    		return $this->goBack();
+    		$dataProvider = new ArrayDataProvider([
+    				'allModels' => Product::find()->limit(8)->orderBy('date DESC')->all()
+    		]);
+    		return $this->render('index', [
+    				'dataProvider' => $dataProvider,
+    				]);
     	} else {
     		return $this->render('login', [
     				'model' => $model,
     		]);
     	}
+    	
     }
     
-    public function actionRegister(){ 	
+    //If the data is ok, makes a redirect to login else goes back to register form
+    public function actionRegister() { 	
+    	
     	$model = new User();
     	$modelLog = new LoginFormFrontend();
+    	
     	if ($model->load(Yii::$app->request->post()) && $model->save()) {
     		return $this->render('login', [
     				'model' => $modelLog,
     				]);
-    	} else{
-  
+    	} else {
     		return $this->render('_form', [
-    				'model' => $model,
-    				
+    				'model' => $model,		
     		]);
     	}
-    
+    	
     }
     
+    //This does the depdrop magic. It´s  a call to a function which returns a the list of subcat based in the cat_id
     public function actionStates() {
+    	
     	$out = [];
     	if (isset($_POST['depdrop_parents'])) {
     		$parents = $_POST['depdrop_parents'];
@@ -153,15 +178,16 @@ class SiteController extends Controller
     		}
     	}
     	echo Json::encode(['output'=>'', 'selected'=>'']);
+    	
     }
     
     
-
-    public function actionLogout()
-    {
-    	Yii::$app->user->logout();
-    
+	//Logout the @ user without a view
+    public function actionLogout() {
+    	
+    	Yii::$app->user->logout();   
     	return $this->goHome();
+    	
     }
     
 }

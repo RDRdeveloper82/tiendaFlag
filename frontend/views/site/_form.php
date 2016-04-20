@@ -10,28 +10,36 @@ use kartik\widgets\DatePicker;
 
 use kartik\widgets\DepDrop;
 
+use yii\captcha\Captcha;
+
 ?>
 
 <div class="user-form">
-
+	
+	<?= Html::tag('h1', Html::encode(Yii::t('frontend/register', 'Sign Up your tiendaFlag account')), ['class' => 'username']) ?>
+	
+	<?= Html::tag('h5', Html::encode(Yii::t('frontend/register', 'Please, fill in all the data fields')), ['class' => 'username']) ?>
+	
+	<?= Html::tag('br', Html::encode(''), ['class' => 'username']) ?>
+	
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => true, 'placeholder '=>'Introduce USUARIO']) ?>
+    <?= $form->field($model, 'username')->textInput(['maxlength' => true, 'placeholder '=>Yii::t('frontend/register', 'Enter an USER name for your account')]) ?>
 
-    <?= $form->field($model, 'authkey')->passwordInput(['maxlength' => 255, 'value' => '', 'placeholder'=>'Introduce CONTRASEÑA']) ?>
+    <?= $form->field($model, 'authkey')->passwordInput(['maxlength' => 255, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your PASSWORD')]) ?>
     
-    <?= $form->field($model, 'authkeyRepeat')->passwordInput(['maxlength' => 255, 'value' => '', 'placeholder'=>'Repite La CONTRASEÑA']) ?>
+    <?= $form->field($model, 'authkeyRepeat')->passwordInput(['maxlength' => 255, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Repeat your PASSWORD')]) ?>
     
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 50, 'value' => '', 'placeholder'=>'Introduce NOMBRE completo']) ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => 50, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your NAME')]) ?>
      
-    <?= $form->field($model, 'dir')->textInput(['maxlength' => 255, 'value' => '', 'placeholder'=>'Introduce la DIRECCION completa']) ?>
+    <?= $form->field($model, 'dir')->textInput(['maxlength' => 255, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your ADDRESS')]) ?>
     
-    <?= $form->field($model, 'city')->textInput(['maxlength' => 255, 'value' => '', 'placeholder'=>'Introduce la CIUDAD']) ?>
+    <?= $form->field($model, 'city')->textInput(['maxlength' => 255, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your CITY')]) ?>
    
     <?php  $catList=ArrayHelper::map(common\models\countries::find()->all(), 'id', 'country_name' );  ?>
     
     <?= $form->field($model, 'country')->dropDownList($catList, [
-    		'prompt' => Yii::t('frontend/user', 'Select a country'),
+    		'prompt' => Yii::t('frontend/register', 'Select a COUNTRY'),
     		'id'=>'id'
     ]); ?>
     
@@ -40,7 +48,7 @@ use kartik\widgets\DepDrop;
   			'value' => '',
 		    'pluginOptions'=>[
 		        'depends'=>['id'],
-		        'placeholder'=>Yii::t('frontend/user', 'Select a state'),
+		        'placeholder'=>Yii::t('frontend/register', 'Select a STATE'),
 		        'url'=>\yii\helpers\Url::to(['/site/states'])
 		    ]
   			
@@ -61,13 +69,18 @@ use kartik\widgets\DepDrop;
   		])
   	?>
         
-    <?= $form->field($model, 'telefono')->textInput(['maxlength' => 9, 'value' => '', 'placeholder'=>'Introduce el TELEFONO']) ?>
+    <?= $form->field($model, 'telefono')->textInput(['maxlength' => 9, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your PHONE')]) ?>
     
-    <?= $form->field($model, 'email')->textInput(['maxlength' => 30, 'value' => '', 'placeholder'=>'Introduce el EMAIL']) ?>
+    <?= $form->field($model, 'email')->textInput(['maxlength' => 30, 'value' => '', 'placeholder'=>Yii::t('frontend/register', 'Enter your EMAIL')]) ?>
+    
+    <?= $form->field($model, 'captcha')->widget(Captcha::classname(), [		
+    		'template' => '<div class="row"><div class="col-lg-3">{image}</div><br/><div class="col-lg-6">{input}</div></div>',
+		]);
+    ?>
     
     <div class="form-group">
     
-     <?= Html::submitButton(Yii::t('frontend/user', 'Create'), ['class' => 'btn btn-success']) ?>
+     <?= Html::submitButton(Yii::t('frontend/register', 'Create'), ['class' => 'btn btn-success']) ?>
 
     </div>
 
