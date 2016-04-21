@@ -6,21 +6,6 @@ use Yii;
 use yii\db\ActiveRecord;
 use Zelenin\yii\behaviors\Slug;
 
-/**
- * This is the model class for table "{{%category}}".
- *
- * @property integer $id
- * @property integer $parent_id
- * @property string $slug
- * @property string $name
- * @property string $description
- * @property string $meta_description
- * @property string $meta_keywords
- *
- * @property Category $parent
- * @property Category[] $categories
- * @property Product[] $products
- */
 class Category extends ActiveRecord
 {
     /**

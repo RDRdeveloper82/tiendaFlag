@@ -29,8 +29,7 @@ class Sizes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'size_name'], 'required'],
-            [['id'], 'integer'],
+            [['size_name'], 'required'],
             [['size_name'], 'string', 'max' => 30],
         ];
     }
@@ -41,8 +40,8 @@ class Sizes extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common\brands', 'ID'),
-            'size_name' => Yii::t('common\brands', 'Size Name'),
+            'id' => Yii::t('common\warehouse', 'ID'),
+            'size_name' => Yii::t('common\warehouse', 'Size'),
         ];
     }
 
@@ -59,6 +58,6 @@ class Sizes extends \yii\db\ActiveRecord
      */
     public function getItems()
     {
-        return $this->hasMany(Items::className(), ['brand_id' => 'item_id'])->viaTable('{{%stocktaking}}', ['size_id' => 'id']);
+        return $this->hasMany(Items::className(), ['id' => 'item_id'])->viaTable('{{%stocktaking}}', ['size_id' => 'id']);
     }
 }

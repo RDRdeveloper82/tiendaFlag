@@ -28,8 +28,7 @@ class Brands extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id'], 'required'],
-            [['id'], 'integer'],
+            [['brand_name'], 'required'],
             [['brand_name'], 'string', 'max' => 30],
         ];
     }
@@ -40,8 +39,8 @@ class Brands extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common\brands', 'ID'),
-            'brand_name' => Yii::t('common\brands', 'Brand Name'),
+            'id' => Yii::t('common\warehouse', 'ID'),
+            'brand_name' => Yii::t('common\warehouse', 'Brand Name'),
         ];
     }
 

@@ -4,19 +4,6 @@ namespace common\models;
 
 use Yii;
 
-/**
- * This is the model class for table "items".
- *
- * @property integer $id
- * @property string $article_name
- * @property integer $brand_id
- * @property integer $cat_id
- *
- * @property Categories $cat
- * @property Brands $brand
- * @property Stocktaking[] $stocktakings
- * @property Sizes[] $sizes
- */
 class Items extends \yii\db\ActiveRecord
 {
     /**
@@ -24,7 +11,7 @@ class Items extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'items';
+        return '{{%items}}';
     }
 
     /**
@@ -33,9 +20,9 @@ class Items extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'article_name', 'brand_id', 'cat_id'], 'required'],
-            [['id', 'brand_id', 'cat_id'], 'integer'],
-            [['article_name'], 'string', 'max' => 30],
+            [['item_name', 'cat_id', 'brand_id'], 'required'],
+            [['cat_id', 'brand_id'], 'integer'],
+            [['item_name'], 'string', 'max' => 30],
             [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['cat_id' => 'id']],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brands::className(), 'targetAttribute' => ['brand_id' => 'id']],
         ];
@@ -47,10 +34,10 @@ class Items extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common\items', 'ID'),
-            'article_name' => Yii::t('common\items', 'Article Name'),
-            'brand_id' => Yii::t('common\items', 'Brand ID'),
-            'cat_id' => Yii::t('common\items', 'Cat ID'),
+            'id' => Yii::t('common/warehouse', 'ID'),
+            'item_name' => Yii::t('common/warehouse', 'Item Name'),
+            'cat_id' => Yii::t('common/warehouse', 'Cat'),
+            'brand_id' => Yii::t('common/warehouse', 'Brand'),
         ];
     }
 
@@ -75,7 +62,7 @@ class Items extends \yii\db\ActiveRecord
      */
     public function getStocktakings()
     {
-        return $this->hasMany(Stocktaking::className(), ['item_id' => 'brand_id']);
+        return $this->hasMany(Stocktaking::className(), ['item_id' => 'id']);
     }
 
     /**
@@ -83,6 +70,6 @@ class Items extends \yii\db\ActiveRecord
      */
     public function getSizes()
     {
-        return $this->hasMany(Sizes::className(), ['id' => 'size_id'])->viaTable('stocktaking', ['item_id' => 'brand_id']);
+        return $this->hasMany(Sizes::className(), ['id' => 'size_id'])->viaTable('{{%stocktaking}}', ['item_id' => 'id']);
     }
 }

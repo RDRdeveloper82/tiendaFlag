@@ -4,14 +4,6 @@ namespace common\models;
 
 use Yii;
 
-/**
- * This is the model class for table "{{%categories}}".
- *
- * @property integer $id
- * @property string $category_name
- *
- * @property Items[] $items
- */
 class Categories extends \yii\db\ActiveRecord
 {
     /**
@@ -28,8 +20,8 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'category_name'], 'required'],
-            [['id'], 'integer'],
+        		
+            [['category_name'], 'required'],
             [['category_name'], 'string', 'max' => 30],
         ];
     }
@@ -40,8 +32,8 @@ class Categories extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common\brands', 'ID'),
-            'category_name' => Yii::t('common\brands', 'Category Name'),
+        	'id' => Yii::t('common/warehouse', 'ID'),
+        	'category_name' => Yii::t('common/warehouse', 'Category'),
         ];
     }
 

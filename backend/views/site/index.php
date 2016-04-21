@@ -3,12 +3,6 @@
 use common\models\Order;
 use yii\grid\GridView;
 use yii\helpers\Html;
-
-/* @var $this yii\web\View */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $categoryModel common\models\Category */
-/* @var $productModel common\models\Product */
-
 $this->title = Yii::t('yii', 'Home');
 ?>
 

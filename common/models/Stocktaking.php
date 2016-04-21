@@ -9,16 +9,18 @@ use Yii;
  *
  * @property integer $item_id
  * @property integer $size_id
- * @property integer $stock
+ * @property string $stock
  *
- * @property Sizes $size
  * @property Items $item
+ * @property Sizes $size
  */
 class Stocktaking extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
+	public $id = null;
+	
     public static function tableName()
     {
         return '{{%stocktaking}}';
@@ -31,9 +33,10 @@ class Stocktaking extends \yii\db\ActiveRecord
     {
         return [
             [['item_id', 'size_id', 'stock'], 'required'],
-            [['item_id', 'size_id', 'stock'], 'integer'],
+            [['item_id', 'size_id'], 'integer'],
+        	[['stock'], 'number', 'min' => 0],
+            [['item_id'], 'exist', 'skipOnError' => true, 'targetClass' => Items::className(), 'targetAttribute' => ['item_id' => 'id']],
             [['size_id'], 'exist', 'skipOnError' => true, 'targetClass' => Sizes::className(), 'targetAttribute' => ['size_id' => 'id']],
-            [['item_id'], 'exist', 'skipOnError' => true, 'targetClass' => Items::className(), 'targetAttribute' => ['item_id' => 'brand_id']],
         ];
     }
 
@@ -43,10 +46,18 @@ class Stocktaking extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'item_id' => Yii::t('common\brands', 'Item ID'),
-            'size_id' => Yii::t('common\brands', 'Size ID'),
-            'stock' => Yii::t('common\brands', 'Stock'),
+            'item_id' => Yii::t('common\warehouse', 'Item'),
+            'size_id' => Yii::t('common\warehouse', 'Size'),
+            'stock' => Yii::t('common\warehouse', 'Stock'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getItem()
+    {
+        return $this->hasOne(Items::className(), ['id' => 'item_id']);
     }
 
     /**
@@ -55,13 +66,5 @@ class Stocktaking extends \yii\db\ActiveRecord
     public function getSize()
     {
         return $this->hasOne(Sizes::className(), ['id' => 'size_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getItem()
-    {
-        return $this->hasOne(Items::className(), ['brand_id' => 'item_id']);
     }
 }
